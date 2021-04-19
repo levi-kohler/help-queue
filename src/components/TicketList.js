@@ -19,7 +19,6 @@ const masterTicketList = [
   }
 ];
 
-
 function TicketList(){
   return (
     <React.Fragment>
