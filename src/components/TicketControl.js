@@ -16,6 +16,7 @@ class TicketControl extends React.Component {
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
   }
+  
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
