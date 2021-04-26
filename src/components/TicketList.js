@@ -22,7 +22,6 @@ function TicketList(props){
   );
 }
 
-
 TicketList.propTypes = {
   // The PropType below has been updated - it's now an object, not an array.
   ticketList: PropTypes.object,
