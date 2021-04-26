@@ -53,9 +53,15 @@ class TicketControl extends React.Component {
   // ^^^ Code before implementing React Redux library ^^^
 
   handleChangingSelectedTicket = (id) => {
-    const selectedTicket = this.state.masterTicketList.filter(ticket => ticket.id === id)[0];
+    const selectedTicket = this.props.masterTicketList[id];
     this.setState({selectedTicket: selectedTicket});
   }
+
+  // handleChangingSelectedTicket = (id) => {
+  //   const selectedTicket = this.state.masterTicketList.filter(ticket => ticket.id === id)[0];
+  //   this.setState({selectedTicket: selectedTicket});
+  // }
+  // ^^^ Code before implementing React Redux Library ^^^
 
   handleDeletingTicket = (id) => {
     const { dispatch } = this.props;
@@ -126,8 +132,11 @@ class TicketControl extends React.Component {
       currentlyVisibleState = <NewTicketForm onNewTicketCreation={this.handleAddingNewTicketToList}  />;
       buttonText = "Return to Ticket List";
     } else {
-      currentlyVisibleState = <TicketList ticketList={this.state.masterTicketList} onTicketSelection={this.handleChangingSelectedTicket} />;
+      currentlyVisibleState = <TicketList ticketList={this.props.masterTicketList} onTicketSelection={this.handleChangingSelectedTicket} />;
       buttonText = "Add Ticket";
+
+      // currentlyVisibleState = <TicketList ticketList={this.state.masterTicketList} onTicketSelection={this.handleChangingSelectedTicket} />;
+      // ^^^ Code before implementing React Redux Library ^^^
     }
     return (
       <React.Fragment>
