@@ -3,6 +3,6 @@ export default (state = false, action) => {
     case 'TOGGLE_FORM':
       return !state;
     default:
-    return state;
+      return state;
   }
 };
