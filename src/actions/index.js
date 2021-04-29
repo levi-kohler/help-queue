@@ -17,7 +17,7 @@ export const addTicket = (ticket) => {
     location: location,
     issue: issue,
     id: id,
-    formattedWaitTime: formattedWaitTime,
+    formattedWaitTime,
     timeOpen: timeOpen
   }
 }
