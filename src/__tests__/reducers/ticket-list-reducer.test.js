@@ -1,5 +1,6 @@
 import ticketListReducer from '../../reducers/ticket-list-reducer';
 import * as c from './../../actions/ActionTypes';
+import Moment from 'moment';
 
 describe('ticketListReducer', () => {
   
@@ -30,13 +31,15 @@ describe('ticketListReducer', () => {
   });
 
   test('Should successfully add new ticket data to masterTicketList', () => {
-    const { names, location, issue, id } = ticketData;
+    const { names, location, issue, timeOpen, id } = ticketData;
     action = {
       type: c.ADD_TICKET,
       names: names,
       location: location,
       issue: issue,
-      id: id
+      timeOpen: timeOpen,
+      id: id,
+      formattedWaitTime: new Moment().fromNow(true)
     };
 
     expect(ticketListReducer({}, action)).toEqual({
@@ -44,7 +47,9 @@ describe('ticketListReducer', () => {
         names: names,
         location: location,
         issue: issue,
-        id: id
+        timeOpen: timeOpen,
+        id: id,
+        formattedWaitTime: 'a few seconds'
       }
     });
   });
